@@ -1,8 +1,12 @@
+import { StyledHeader } from "./Header.style"
+
 export default function () {
 
 	return (
-		<header>
-			HEADER
-		</header>
+		<StyledHeader $black>
+			<button>
+				Click Me!
+			</button>
+		</StyledHeader>
 	)
 }
