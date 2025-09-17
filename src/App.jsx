@@ -1,15 +1,20 @@
+import { lazy, Suspense } from "react"
 import { Routes, Route } from "react-router"
-import Home from "./Components/Home"
-import About from "./Components/About"
-import Contacts from "./Components/Contacts"
+import Loading from "./Components/Loading"
+
+const Home = lazy( () => import( "./Components/Home" ) )
+const About = lazy( () => import( "./Components/About" ) )
+const Contacts = lazy( () => import( "./Components/Contacts" ) )
 
 export default function () {
 
 	return (
-		<Routes>
-			<Route path="/" element={ <Home /> } />
-			<Route path="/about" element={ <About /> } />
-			<Route path="/contacts" element={ <Contacts /> } />
-		</Routes>
+		<Suspense fallback={ <Loading /> }>
+			<Routes>
+				<Route path="/" element={ <Home /> } />
+				<Route path="/about" element={ <About /> } />
+				<Route path="/contacts" element={ <Contacts /> } />
+			</Routes>
+		</Suspense>
 	)
 }

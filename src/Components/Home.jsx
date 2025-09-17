@@ -1,4 +1,8 @@
+import Header from "./Header"
+
 export default function () {
 
-	return <>Home</>
+	return <>
+		<Header />
+	</>
 }
